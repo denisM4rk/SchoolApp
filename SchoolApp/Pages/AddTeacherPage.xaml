@@ -1,0 +1,64 @@
+﻿<Page x:Class="SchoolApp.Pages.AddTeacherPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="600"
+      Title="Добавление преподавателя">
+
+    <Grid Background="White">
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical" Margin="30">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/name.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Имя</TextBlock>
+                        </StackPanel>
+                        <TextBox Name="TxbName" Style="{StaticResource EditStyleTextBox}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/date.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Дата рождения</TextBlock>
+                        </StackPanel>
+                        <DatePicker Width="250" Style="{StaticResource EditStylePicker}" Name="BirthDate"></DatePicker>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="10" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/gender.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Пол</TextBlock>
+                        </StackPanel>
+                        <ComboBox Name="CmbGender" Style="{StaticResource EditStyleComboBox}">
+                            <ComboBoxItem>М</ComboBoxItem>
+                            <ComboBoxItem>Ж</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/pc.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Компьютер</TextBlock>
+                        </StackPanel>
+                        <ComboBox Name="CmbComputer" Style="{StaticResource EditStyleComboBox}"></ComboBox>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="10" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/class.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Класс</TextBlock>
+                        </StackPanel>
+                        <ComboBox Name="CmbClass" Style="{StaticResource EditStyleComboBox}"></ComboBox>
+                    </StackPanel>
+                </StackPanel>
+                <Button Name="BtnAdd" VerticalAlignment="Bottom" Click="BtnAdd_Click" Style="{StaticResource Button}">Добавить</Button>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

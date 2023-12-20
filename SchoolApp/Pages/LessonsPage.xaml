@@ -1,0 +1,83 @@
+﻿<Page x:Class="SchoolApp.Pages.LessonsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolApp.Pages"
+      xmlns:files="clr-namespace:SchoolApp.AppFiles"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="900"
+      Title="Оценки">
+    
+    <Page.Resources>
+        <files:ColorConverter x:Key="ColorConverter"/>
+    </Page.Resources>
+    
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ToolBar Grid.Row="0">
+            <Button Name="BtnAdd" Click="BtnAdd_Click" Width="160" Height="50" BorderBrush="Black" BorderThickness="1" Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30" VerticalAlignment="Center" Source="/Resources/add.png"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10" FontSize="20">Добавить</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator Background="Black" Width="2"/>
+            <Button Name="BtnDelete" Click="BtnDelete_Click" Width="160" Height="50" BorderBrush="Black" BorderThickness="1" Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30" VerticalAlignment="Center" Source="/Resources/delete.png"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10" FontSize="20">Удалить</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator Background="Black" Width="2"/>
+            <Button Name="BtnEdit" Click="BtnEdit_Click" Width="210" Height="50" BorderBrush="Black" BorderThickness="1" Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30" VerticalAlignment="Center" Source="/Resources/edit.png"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10" FontSize="20">Редактировать</TextBlock>
+                </StackPanel>
+            </Button>
+            <ComboBox BorderBrush="Black" Width="140" Style="{StaticResource FiltrationBox}" Height="50" Name="CmbClass" SelectionChanged="CmbClass_SelectionChanged"/>
+        </ToolBar>
+
+        <DataGrid Name="LessonsGrid" SelectionChanged="LessonsGrid_SelectionChanged" Grid.Row="1" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </DataGrid.CellStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Урок"
+                                Width="Auto"
+                                IsReadOnly="True"
+                                Binding="{Binding Subjects.Name}"/>
+                <DataGridTextColumn Header="Дата урока"
+                                Width="auto"
+                                IsReadOnly="True"
+                                Binding="{Binding GradeDate}"/>
+                <DataGridTextColumn Header="Ученик"
+                                Width="auto"
+                                IsReadOnly="True"
+                                Binding="{Binding Students.FullName}"/>
+                <DataGridTextColumn Header="Класс"
+                                Width="auto"
+                                IsReadOnly="True"
+                                Binding="{Binding Classes.Name}"/>
+                <DataGridTextColumn Header="Оценка"
+                                Width="*"
+                                IsReadOnly="True"
+                                Binding="{Binding Grades.Grade}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Background" Value="{Binding Grades.Grade, Converter={StaticResource ColorConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

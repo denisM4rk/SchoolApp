@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b5afb59150d4e08becc98fe485d585b" Name="Diagram1">
+        <EntityTypeShape EntityType="DbSchoolModel.Attendance" Width="1.5" PointX="8.25" PointY="8.625" />
+        <EntityTypeShape EntityType="DbSchoolModel.Classes" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="DbSchoolModel.Computers" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="DbSchoolModel.Grades" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="DbSchoolModel.Lessons" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="DbSchoolModel.Roles" Width="1.5" PointX="5.75" PointY="1.125" />
+        <EntityTypeShape EntityType="DbSchoolModel.Students" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="DbSchoolModel.Subjects" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="DbSchoolModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DbSchoolModel.Teachers" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="DbSchoolModel.Teachers_Subjects" Width="1.5" PointX="5.25" PointY="5.375" />
+        <EntityTypeShape EntityType="DbSchoolModel.Users" Width="1.5" PointX="8" PointY="0.875" />
+        <AssociationConnector Association="DbSchoolModel.FK_Attendance_Students" />
+        <AssociationConnector Association="DbSchoolModel.FK_Attendance_Subjects" />
+        <AssociationConnector Association="DbSchoolModel.FK_Attendance_Teachers" />
+        <AssociationConnector Association="DbSchoolModel.FK_Lessons_Classes" />
+        <AssociationConnector Association="DbSchoolModel.FK_Students_Classes" />
+        <AssociationConnector Association="DbSchoolModel.FK_Teachers_Classes" />
+        <AssociationConnector Association="DbSchoolModel.FK_Teachers_Computers" />
+        <AssociationConnector Association="DbSchoolModel.FK_Journal_Grades" />
+        <AssociationConnector Association="DbSchoolModel.FK_Journal_Students" />
+        <AssociationConnector Association="DbSchoolModel.FK_Journal_Subjects" />
+        <AssociationConnector Association="DbSchoolModel.FK_Users_Roles" />
+        <AssociationConnector Association="DbSchoolModel.FK_Teachers_Subjects_Subjects" />
+        <AssociationConnector Association="DbSchoolModel.FK_Teachers_Subjects_Teachers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

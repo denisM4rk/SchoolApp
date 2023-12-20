@@ -1,0 +1,77 @@
+﻿<Page x:Class="SchoolApp.Pages.TeachersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="900"
+      Title="Работа с преподавателями">
+    
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ToolBar Grid.Row="0">
+            <Button Name="BtnAdd" Click="BtnAdd_Click" Width="160" Height="50" BorderBrush="Black" BorderThickness="1" Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30" VerticalAlignment="Center" Source="/Resources/add.png"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10" FontSize="20">Добавить</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator Background="Black" Width="2"/>
+            <Button Name="BtnDelete" Click="BtnDelete_Click" Width="160" Height="50" BorderBrush="Black" BorderThickness="1" Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30" VerticalAlignment="Center" Source="/Resources/delete.png"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10" FontSize="20">Удалить</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator Background="Black" Width="2"/>
+            <Button Name="BtnEdit" Click="BtnEdit_Click" Width="210" Height="50" BorderBrush="Black" BorderThickness="1" Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30" VerticalAlignment="Center" Source="/Resources/edit.png"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10" FontSize="20">Редактировать</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator Background="Black" Width="2"/>
+            <Button Name="BtnTeachersSubjects" Click="BtnTeachersSubjects_Click" Width="240" Height="50" BorderBrush="Black" BorderThickness="1" Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30" VerticalAlignment="Center" Source="/Resources/books.png"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10" FontSize="20">Назначить предмет</TextBlock>
+                </StackPanel>
+            </Button>
+        </ToolBar>
+
+        <DataGrid SelectionChanged="TeachersGrid_SelectionChanged" Name="TeachersGrid" Grid.Row="1" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО"
+                                Width="Auto"
+                                IsReadOnly="True"
+                                Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Дата рождения"
+                                Width="auto"
+                                IsReadOnly="True"
+                                Binding="{Binding DateOfBirth}"/>
+                <DataGridTextColumn Header="Пол"
+                                Width="auto"
+                                IsReadOnly="True"
+                                Binding="{Binding Gender}"/>
+                <DataGridTextColumn Header="Идентификатор компьютера"
+                                Width="Auto"
+                                IsReadOnly="True"
+                                Binding="{Binding Computers.SerialNumber}"/>
+                <DataGridTextColumn Header="Класс"
+                                Width="*"
+                                IsReadOnly="True"
+                                Binding="{Binding Classes.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

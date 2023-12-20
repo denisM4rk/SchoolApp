@@ -1,0 +1,42 @@
+﻿<Page x:Class="SchoolApp.Pages.TeachersSubjectsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Предметы">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource AuthorizationTextBlock}">Учитель:</TextBlock>
+            <ComboBox Width="140" Style="{StaticResource FiltrationBox}" Height="50" Name="CmbTeacher" SelectionChanged="CmbTeacher_SelectionChanged"/>
+            <Button Style="{StaticResource Button}" Height="40" Name="BtnAll" Click="BtnAll_Click">Все учителя</Button>
+        </StackPanel>
+        
+        <DataGrid Name="SubjectsGrid" Grid.Row="1" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </DataGrid.CellStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Учитель"
+                                Width="Auto"
+                                IsReadOnly="True"
+                                Binding="{Binding Teachers.FullName}"/>
+                <DataGridTextColumn Header="Предмет"
+                                Width="*"
+                                IsReadOnly="True"
+                                Binding="{Binding Subjects.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -1,0 +1,63 @@
+﻿<Page x:Class="SchoolApp.Pages.AddLessonPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="Оценки">
+
+    <Grid Background="White">
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical" Margin="30">
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="10" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/class.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Класс</TextBlock>
+                        </StackPanel>
+                        <ComboBox Name="CmbClass" SelectionChanged="CmbClass_SelectionChanged" Style="{StaticResource EditStyleComboBox}"></ComboBox>
+                    </StackPanel>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="10" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/gender.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Ученик</TextBlock>
+                        </StackPanel>
+                        <ComboBox Name="CmbStudent" Style="{StaticResource EditStyleComboBox}"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/date.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Дата урока</TextBlock>
+                        </StackPanel>
+                        <DatePicker Width="250" Style="{StaticResource EditStylePicker}" Name="GradeDate"></DatePicker>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="10" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/class.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Предмет</TextBlock>
+                        </StackPanel>
+                        <ComboBox Name="CmbSubject" Style="{StaticResource EditStyleComboBox}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="10" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/serial.png" Margin="5" Height="25"/>
+                            <TextBlock Style="{StaticResource EditStyleTextBlock}" HorizontalAlignment="Left" Width="200">Оценка</TextBlock>
+                        </StackPanel>
+                        <ComboBox Name="CmbGrade" Style="{StaticResource EditStyleComboBox}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Button Name="BtnAdd" VerticalAlignment="Bottom" Click="BtnAdd_Click" Style="{StaticResource Button}">Добавить</Button>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
